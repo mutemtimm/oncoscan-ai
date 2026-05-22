@@ -8,7 +8,7 @@ export const Route = createFileRoute("/detection")({
   component: Detection,
   head: () => ({
     meta: [
-      { title: "Detection — OncoScan AI" },
+      { title: "Detection — OncoScan" },
       { name: "description", content: "Upload a histopathology image and get an AI-powered IDC prediction with confidence score." },
     ],
   }),

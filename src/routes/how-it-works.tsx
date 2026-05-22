@@ -6,8 +6,8 @@ export const Route = createFileRoute("/how-it-works")({
   component: HowItWorks,
   head: () => ({
     meta: [
-      { title: "How It Works — OncoScan AI" },
-      { name: "description", content: "An end-to-end walkthrough of the OncoScan AI pipeline from data to deployment." },
+      { title: "How It Works — OncoScan" },
+      { name: "description", content: "An end-to-end walkthrough of the OncoScan pipeline from data to deployment." },
     ],
   }),
 });
@@ -17,7 +17,7 @@ const STEPS = [
     n: "01",
     icon: "🗂",
     title: "Image Collection",
-    text: "We use the Kaggle Breast Histopathology Images dataset — a curated collection of 277,524 image patches extracted from 162 whole-slide images, each labeled IDC-positive or IDC-negative.",
+    text: "We use the Kaggle Breast Histopathology Images dataset — a curated collection of 50,000 + image patches extracted from 162 whole-slide images, each labeled IDC-positive or IDC-negative.",
   },
   {
     n: "02",
@@ -63,7 +63,7 @@ function HowItWorks() {
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-bold mb-4">Architecture</div>
           <h1 className="text-5xl md:text-7xl font-extrabold text-navy tracking-tight leading-[1.05]">How It Works</h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            From raw histopathology slides to a live diagnostic API — here is the complete OncoScan AI pipeline.
+            From raw histopathology slides to a live diagnostic API — here is the complete OncoScan pipeline.
           </p>
         </motion.div>
       </section>

@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
   component: Home,
   head: () => ({
     meta: [
-      { title: "OncoScan AI — Detecting Cancer. Saving Lives." },
+      { title: "OncoScan — Detecting Cancer. Saving Lives." },
       { name: "description", content: "AI-powered breast cancer detection using deep learning on histopathology images." },
     ],
   }),
@@ -93,10 +93,10 @@ function Home() {
       </section>
 
       {/* COUNTERS */}
-      <section className="relative -mt-20 z-10 max-w-7xl mx-auto px-6">
+      <section className="relative z-10 max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-3 gap-5">
           {[
-            { label: "Images Analyzed", value: 277524, suffix: "" },
+            { label: "Images Analyzed", value: 0, custom: "50,000 +" },
             { label: "Model Accuracy", value: 89, suffix: "%" },
             { label: "Detection Type", value: 0, custom: "IDC" },
           ].map((s, i) => (
@@ -149,7 +149,7 @@ function Home() {
             Histopathology image analysis, powered by deep learning.
           </h2>
           <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-            OncoScan AI examines microscope-level tissue patches and predicts whether they contain Invasive Ductal Carcinoma — the most common form of breast cancer.
+            OncoScan examines microscope-level tissue patches and predicts whether they contain Invasive Ductal Carcinoma — the most common form of breast cancer.
           </p>
           <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
             Built on a fine-tuned MobileNetV2 architecture and trained on the Kaggle Breast Histopathology dataset, our system delivers a confidence score within seconds of upload.

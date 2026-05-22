@@ -6,7 +6,7 @@ export const Route = createFileRoute("/about-disease")({
   component: AboutDisease,
   head: () => ({
     meta: [
-      { title: "About the Disease — OncoScan AI" },
+      { title: "About the Disease — OncoScan" },
       { name: "description", content: "Understanding breast cancer, IDC, risk factors, warning signs, and global statistics." },
     ],
   }),

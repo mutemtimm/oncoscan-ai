@@ -55,10 +55,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "OncoScan AI — Breast Cancer Detection" },
+      { title: "OncoScan — Breast Cancer Detection" },
       { name: "description", content: "AI-powered histopathology image analysis for early breast cancer detection." },
     ],
-    links: [{ rel: "stylesheet", href: appCss }],
+    links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%231e40af;stop-opacity:1' /><stop offset='100%' style='stop-color:%23581c87;stop-opacity:1' /></linearGradient></defs><rect width='256' height='256' fill='url(%23grad)' rx='50'/><path d='M 128 64 L 160 96 L 128 128 L 96 96 Z M 64 128 L 96 160 L 64 192 L 32 160 Z M 192 128 L 224 160 L 192 192 L 160 160 Z' fill='white' opacity='0.9'/></svg>" },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,

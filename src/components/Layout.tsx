@@ -23,6 +23,7 @@ function Navbar() {
   const { location } = useRouterState();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -32,12 +33,13 @@ function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/70 backdrop-blur-xl border-b border-white/40 shadow-[0_4px_30px_-10px_rgba(10,22,40,0.15)]"
-          : "bg-transparent border-b border-transparent"
-      }`}
+    <>
+      <header
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/70 backdrop-blur-xl border-b border-white/40 shadow-[0_4px_30px_-10px_rgba(10,22,40,0.15)]"
+            : isHome ? "bg-transparent border-b border-transparent" : "bg-blue-900/40 backdrop-blur-md border-b border-white/10"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5 group">
@@ -45,8 +47,8 @@ function Navbar() {
             <DnaIcon className="w-5 h-5" />
           </div>
           <div>
-            <div className="font-extrabold tracking-tight text-navy text-lg leading-none">OncoScan AI</div>
-            <div className="text-[10px] uppercase tracking-widest text-muted-foreground mt-0.5">Medical Diagnostic</div>
+            <div className={`font-extrabold tracking-tight text-lg leading-none transition-colors ${scrolled ? "text-navy" : "text-white"}`}>OncoScan</div>
+            <div className={`text-[10px] uppercase tracking-widest mt-0.5 transition-colors ${scrolled ? "text-muted-foreground" : "text-blue-200/70"}`}>Medical Diagnostic</div>
           </div>
         </Link>
 
@@ -57,7 +59,11 @@ function Navbar() {
               <Link
                 key={n.to}
                 to={n.to}
-                className={`nav-link text-sm font-medium text-navy/80 hover:text-primary transition-colors ${active ? "is-active" : ""}`}
+                className={`nav-link text-sm font-medium transition-colors ${
+                  scrolled
+                    ? `text-navy/80 hover:text-primary ${active ? "is-active" : ""} drop-shadow-sm`
+                    : `text-white/90 hover:text-white ${active ? "text-white" : ""} drop-shadow-lg`
+                }`}
               >
                 {n.label}
               </Link>
@@ -67,7 +73,11 @@ function Navbar() {
 
         <button
           aria-label="Toggle menu"
-          className="md:hidden w-9 h-9 rounded-lg bg-white/70 border border-border flex items-center justify-center"
+          className={`md:hidden w-9 h-9 rounded-lg border flex items-center justify-center transition-colors ${
+            scrolled
+              ? "bg-white/70 border-border text-navy"
+              : "bg-white/20 border-white/30 text-white"
+          }`}
           onClick={() => setOpen((v) => !v)}
         >
           <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -103,6 +113,7 @@ function Navbar() {
         )}
       </AnimatePresence>
     </header>
+    </>
   );
 }
 
@@ -115,7 +126,7 @@ function Footer() {
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-[#1a1040] flex items-center justify-center">
               <DnaIcon className="w-5 h-5" />
             </div>
-            <div className="font-extrabold tracking-tight text-lg">OncoScan AI</div>
+            <div className="font-extrabold tracking-tight text-lg">OncoScan</div>
           </div>
           <p className="text-sm text-blue-100/70 leading-relaxed max-w-xs">
             AI-powered histopathology analysis for early breast cancer detection.
@@ -140,7 +151,7 @@ function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-wrap items-center justify-between gap-3 text-xs text-blue-200/60">
-          <div>© 2026 OncoScan AI. All rights reserved.</div>
+          <div>© 2026 OncoScan. All rights reserved.</div>
           <div>St. Mary University — AI Course Project 2026</div>
         </div>
       </div>

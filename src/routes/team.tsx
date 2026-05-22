@@ -6,18 +6,17 @@ export const Route = createFileRoute("/team")({
   component: Team,
   head: () => ({
     meta: [
-      { title: "Our Team — OncoScan AI" },
-      { name: "description", content: "Meet the computer science students at St. Mary University who built OncoScan AI." },
+      { title: "Our Team — OncoScan" },
+      { name: "description", content: "Meet the computer science students at St. Mary University who built OncoScan." },
     ],
   }),
 });
 
 const MEMBERS = [
-  { name: "Mutemtim", role: "Lead Developer & AI Engineer", gradient: "from-blue-500 to-purple-600" },
-  { name: "Temesgen Nigussie", role: "Backend Developer", gradient: "from-teal-500 to-blue-600" },
-  { name: "Nahom Mekonen", role: "Data Engineer", gradient: "from-indigo-500 to-pink-500" },
-  { name: "Bereket Matusala", role: "Frontend Developer", gradient: "from-emerald-500 to-teal-600" },
-  { name: "Naod Kibrom", role: "Model Training & Evaluation", gradient: "from-rose-500 to-orange-500" },
+  { name: "Temesgen Nigussie", gradient: "from-teal-500 to-blue-600" },
+  { name: "Nahom Mekonen", gradient: "from-indigo-500 to-pink-500" },
+  { name: "Bereket Matusala", gradient: "from-emerald-500 to-teal-600" },
+  { name: "Naod Kibrom", gradient: "from-rose-500 to-orange-500" },
 ];
 
 function initials(name: string) {
@@ -35,7 +34,7 @@ function Team() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <div className="text-xs uppercase tracking-[0.25em] text-primary font-bold mb-4">The Team</div>
           <h1 className="text-5xl md:text-7xl font-extrabold text-navy tracking-tight leading-[1.05]">
-            The Minds Behind<br />OncoScan AI
+            The Minds Behind<br />OncoScan
           </h1>
           <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Built by computer science students at St. Mary University, Addis Ababa.
@@ -59,7 +58,6 @@ function Team() {
                   </div>
                 </div>
                 <div className="text-xl font-extrabold text-navy">{m.name}</div>
-                <div className="mt-1.5 text-sm text-primary font-semibold">{m.role}</div>
               </motion.div>
             </Reveal>
           ))}
